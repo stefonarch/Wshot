@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Wshot
+GenericName=Screenshot tool for wayland
+Exec=wshot
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Icon=accessories-screenshot
+Categories=Graphics;Acessories
+Keywords=screenshot;wayland;

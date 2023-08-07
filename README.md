@@ -1,26 +1,19 @@
-# wayland-screenshot
+# Wshot
 
 ## Depends
 
 - grim
 - slurp
-- zenity
+- zenity|qarma
 - jq
 - wl-clipboard
 
 ## Install
 
-- Archlinux(AUR)
 
 ```
-$ yay -S wayland-screenshot-git
-```
-
-- Manual
-
-```
-$ sudo cp ./wayland-screenshot /usr/local/bin/
-$ sudo cp ./wayland-screenshot.desktop /usr/local/share/applications/
+$ sudo cp ./wshot /usr/local/bin/
+$ sudo cp ./wshot.desktop /usr/local/share/applications/
 ```
 
 
@@ -28,12 +21,7 @@ $ sudo cp ./wayland-screenshot.desktop /usr/local/share/applications/
 
 Run `wayland-screenshot.desktop` from menu entry, or run `wayland-screenshot` on terminal.
 Select mode, then press OK.
-Screenshots are saved to `~/Downloads/Screenshot_*`.
+By default screenshots are saved to `~/tmp/screenshot_*`, edit `FILEDIR=` in `wshot` to change.
 
-![](/Screenshot_2020-05-13_01:45:50.png)
+![Image of Wshot](wshot.png)
 
-## Use floting window on sway
-
-```
-for_window [app_id="zenity"] floating enable
-```
