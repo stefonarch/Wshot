@@ -3,21 +3,22 @@
 FILEDIR=/tmp
 OPTION=()
 
-
-values=$(zenity \
-  --title=Wshot \
-  --text="Options" \
-  --forms \
-  --add-combo="Mode" \
-    --combo-values="Full screen|Selected area" \
-  --add-combo="Include cursor" \
-    --combo-values="no|yes" \
-    --add-combo="Delay" \
-    --combo-values="0|2|4|6|8|10" \
-    --add-combo="Destination" \
-    --combo-values="Save file|Clipboard" \
-    --add-entry="Custom filename:" \
-      )
+values=$(qarma \
+	--title=Wshot \
+	--text="Options" \
+	--forms \
+	--add-combo="Mode" \
+		--combo-values="Full screen|Selected window|Selected area" \
+	--add-combo="Include cursor" \
+		--combo-values="no|yes" \
+	--add-combo="Delay" \
+		--combo-values="0|2|4|6|8|10|15|20" \
+	--add-combo="Destination" \
+		--combo-values="Save file|Clipboard" \
+	--add-entry="Custom filename:" \
+	--add-combo="Open saved result?" \
+		--combo-values="no|yes" \
+)
 
 result=$?
 
@@ -26,6 +27,7 @@ cursor=$(echo $values | cut -d '|' -f 2)
 wait=$(echo $values | cut -d '|' -f 3)
 destination=$(echo $values | cut -d '|' -f 4)
 filename=$(echo $values | cut -d '|' -f 5)
+open=$(echo $values | cut -d '|' -f 6)
 
 if [ "$result" -eq 1 ];then      # select cancel
 	echo "Quitting..."
@@ -36,28 +38,23 @@ if [ ! -z "$cursor" ] &&  [ "$cursor" == yes ];then
 	OPTION+="-c"
 fi
 
-if [ -z "$mode" ] ;then       # select nothing
-	echo "mode is null"
-	zenity \
-		--title=Wshot \
-		--width=200 \
-		--warning \
-		--text="Mode empty"
-	exit
-fi
-
 if [ ! -z "$wait" ];then
 	sleep $wait
 fi
 
-if [ "$mode" == "Full screen" ];then  # select full screen
+if [ "$mode" == "Full screen" ];then
 	true
-#elif [ "$mode" == "Specific window" ];then  # select specify window under sway
-#	GEO="$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)"
-elif [ "$mode" == "Selected area" ];then  # select area
+elif [ "$mode" == "Selected window" ];then
+	if pgrep -x sway > /dev/null; then
+	GEO="$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)"
+	elif pgrep -x wayfire > /dev/null; then
+	GEO=$(wf-info |grep Geometry |cut -c 10-)
+	else
+	notify-send -a Wshot -i accessories-screenshot "Compositor does not support window detection."
+	exit
+	fi
+elif [ "$mode" == "Selected area" ];then
 	GEO="$(slurp)"
-else                         # error
-	echo $mode
 fi
 
 if [ -z "$filename" ];then
@@ -67,17 +64,19 @@ fi
 if [ -z "$destination" ] || [ "$destination" == Clipboard ];then
 	if [ -z "$GEO" ]; then
 		grim $OPTION - | wl-copy;
-		notify-send -t 2000 -a Wshot -i accessories-screenshot "Fullscreen screenshot copied to clipboard"
 	else
 		grim $OPTION -g "$GEO" - | wl-copy;
-		notify-send -t 2000 -a Wshot -i accessories-screenshot "Area screenshot copied to clipboard"
 	fi
+	notify-send -t 2000 -a Wshot -i accessories-screenshot "Screenshot copied to clipboard"
 else
 	if [ -z "$GEO" ]; then
 		grim $OPTION $FILEDIR/$filename.png
-		notify-send -t 2000 -a Wshot -i accessories-screenshot "Fullscreen Screenshot saved"
 	else
 		grim $OPTION -g "$GEO" $FILEDIR/$filename.png
-		notify-send -t 2000 -a Wshot -i accessories-screenshot "Area screenshot saved"
+	fi
+	if [ "$open" == yes ]; then
+	xdg-open $FILEDIR/$filename.png
+	else
+		notify-send -t 2000 -a Wshot -i accessories-screenshot "Screenshot saved in $FILEDIR"
 	fi
 fi
