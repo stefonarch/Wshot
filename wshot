@@ -16,6 +16,7 @@ values=$(zenity \
     --combo-values="0|2|4|6|8|10" \
     --add-combo="Destination" \
     --combo-values="Save file|Clipboard" \
+    --add-entry="Custom filename:" \
       )
 
 result=$?
@@ -24,9 +25,10 @@ mode=$(echo $values | cut -d '|' -f 1)
 cursor=$(echo $values | cut -d '|' -f 2)
 wait=$(echo $values | cut -d '|' -f 3)
 destination=$(echo $values | cut -d '|' -f 4)
+filename=$(echo $values | cut -d '|' -f 5)
 
 if [ "$result" -eq 1 ];then      # select cancel
-	echo "cancelled"
+	echo "Quitting..."
 	exit
 fi
 
@@ -58,20 +60,24 @@ else                         # error
 	echo $mode
 fi
 
+if [ -z "$filename" ];then
+	filename=screenshot_$(date +%F_%H.%M.%S)
+fi
+
 if [ -z "$destination" ] || [ "$destination" == Clipboard ];then
 	if [ -z "$GEO" ]; then
 		grim $OPTION - | wl-copy;
-		notify-send -t 2000 -a Wshot -i accessories-screenshot "Full screenshot copied to clipboard"
+		notify-send -t 2000 -a Wshot -i accessories-screenshot "Fullscreen screenshot copied to clipboard"
 	else
 		grim $OPTION -g "$GEO" - | wl-copy;
 		notify-send -t 2000 -a Wshot -i accessories-screenshot "Area screenshot copied to clipboard"
 	fi
 else
 	if [ -z "$GEO" ]; then
-		grim $OPTION $FILEDIR/screenshot_full_$(date +%F_%H.%M.%S).png
-		notify-send -t 2000 -a Wshot -i accessories-screenshot "Full Screenshot saved"
+		grim $OPTION $FILEDIR/$filename.png
+		notify-send -t 2000 -a Wshot -i accessories-screenshot "Fullscreen Screenshot saved"
 	else
-		grim $OPTION -g "$GEO" $FILEDIR/screenshot_area_$(date +%F_%H.%M.%S).png
+		grim $OPTION -g "$GEO" $FILEDIR/$filename.png
 		notify-send -t 2000 -a Wshot -i accessories-screenshot "Area screenshot saved"
 	fi
 fi
