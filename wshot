@@ -50,7 +50,11 @@ elif [ "$mode" == "Selected window" ];then
 	elif pgrep -x wayfire > /dev/null; then
 	GEO=$(wf-info |grep Geometry |cut -c 10-)
 	else
-	notify-send -a Wshot -i accessories-screenshot "Compositor does not support window detection."
+	qarma \
+		--title=Wshot \
+		--width=1500 \
+		--warning \
+		--text="Compositor in use does not support window detection."
 	exit
 	fi
 elif [ "$mode" == "Selected area" ];then
