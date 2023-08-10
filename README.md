@@ -2,19 +2,19 @@
 
 >Simple Qt screenshot GUI for wayland.
 
-![Image of wshot](wshot.png)
+![Image of wshot](wshot1.png)
 
 ## Depends
 
 * grim
 * slurp
 * qarma
-* jq
 * wl-clipboard
 
 ### Optional
 
 * wf-info (to select window under wayfire)
+* jq (to select window under sway)
 
 ## Install
 

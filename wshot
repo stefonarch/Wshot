@@ -8,7 +8,7 @@ values=$(qarma \
 	--text="Options" \
 	--forms \
 	--add-combo="Mode" \
-		--combo-values="Full screen|Selected window|Selected area" \
+		--combo-values="Selected area|Full screen|Selected window" \
 	--add-combo="Include cursor" \
 		--combo-values="no|yes" \
 	--add-combo="Delay" \
@@ -16,6 +16,8 @@ values=$(qarma \
 	--add-combo="Destination" \
 		--combo-values="Save file|Clipboard" \
 	--add-entry="Custom filename:" \
+	--add-combo="File type" \
+		--combo-values="png|jpeg" \
 	--add-combo="Open saved result?" \
 		--combo-values="no|yes" \
 )
@@ -27,10 +29,12 @@ cursor=$(echo $values | cut -d '|' -f 2)
 wait=$(echo $values | cut -d '|' -f 3)
 destination=$(echo $values | cut -d '|' -f 4)
 filename=$(echo $values | cut -d '|' -f 5)
-open=$(echo $values | cut -d '|' -f 6)
+filetype=$(echo $values | cut -d '|' -f 6)
+open=$(echo $values | cut -d '|' -f 7)
 
-if [ "$result" -eq 1 ];then      # select cancel
-	echo "Quitting..."
+
+if [ "$result" -eq 1 ];then      # selected cancel
+	echo "Goodbye!"
 	exit
 fi
 
@@ -54,8 +58,9 @@ elif [ "$mode" == "Selected window" ];then
 		--title=Wshot \
 		--width=1500 \
 		--warning \
-		--text="Compositor in use does not support window detection."
-	exit
+		--timeout 3 \
+		--text="Compositor does not support automatic window detection."
+	GEO="$(slurp)"
 	fi
 elif [ "$mode" == "Selected area" ];then
 	GEO="$(slurp)"
@@ -67,20 +72,20 @@ fi
 
 if [ -z "$destination" ] || [ "$destination" == Clipboard ];then
 	if [ -z "$GEO" ]; then
-		grim $OPTION - | wl-copy;
+		grim $OPTION -t $filetype - | wl-copy;
 	else
-		grim $OPTION -g "$GEO" - | wl-copy;
+		grim $OPTION -t $filetype -g "$GEO" - | wl-copy;
 	fi
-	notify-send -t 2000 -a Wshot -i accessories-screenshot "Screenshot copied to clipboard"
+	notify-send -t 3000 -a Wshot -i accessories-screenshot "Screenshot copied to clipboard"
 else
 	if [ -z "$GEO" ]; then
-		grim $OPTION $FILEDIR/$filename.png
+		grim $OPTION -t $filetype $FILEDIR/$filename.$filetype
 	else
-		grim $OPTION -g "$GEO" $FILEDIR/$filename.png
+		grim $OPTION -t $filetype -g "$GEO" $FILEDIR/$filename.$filetype
 	fi
 	if [ "$open" == yes ]; then
-	xdg-open $FILEDIR/$filename.png
+	xdg-open $FILEDIR/$filename.$filetype
 	else
-		notify-send -t 2000 -a Wshot -i accessories-screenshot "Screenshot saved in $FILEDIR"
+		notify-send -t 3000 -a Wshot -i accessories-screenshot "Screenshot saved as $FILEDIR/$filename.$filetype"
 	fi
 fi
