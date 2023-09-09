@@ -8,7 +8,7 @@ values=$(qarma \
 	--text="Options" \
 	--forms \
 	--add-combo="Mode" \
-		--combo-values="Selected area|Full screen|Selected window" \
+		--combo-values="Full screen|Selected area|Selected window" \
 	--add-combo="Include cursor" \
 		--combo-values="no|yes" \
 	--add-combo="Delay" \
