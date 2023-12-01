@@ -5,6 +5,6 @@ Exec=wshot
 Terminal=false
 Type=Application
 Encoding=UTF-8
-Icon=accessories-screenshot
+Icon=wshot
 Categories=Graphics;Acessories
 Keywords=screenshot;wayland;

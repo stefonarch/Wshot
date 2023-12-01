@@ -24,7 +24,6 @@ cd wshot
 sudo cp ./wshot /usr/local/bin/
 ```
 
-
 ## Usage
 
 By default screenshots are saved to `~/tmp/screenshot_*`, edit `FILEDIR=` in `wshot` to change.
@@ -35,10 +34,7 @@ If no custom filename is set it defaults to `screenshot_$(date +%F_%H.%M.%S)` e.
 
 Not tested using zenity instead of qarma.
 
-## License
+## Licenses
 
-GPL3
-
-
-
-
+Wshot is licensed under the [GPL3](COPYING) license. <br/>
+Icon comes from the [nuoveXT2.2](https://www.deviantart.com/sa-ki/art/nuoveXT-2-53518454) icon set by sa-ki, LGPL3 license.
