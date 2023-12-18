@@ -3,7 +3,8 @@
 FILEDIR=/tmp
 OPTION=()
 
-values=$(qarma \
+values=$(zenity \
+	--window-icon=/usr/share/pixmaps/wshot.png \
 	--title=Wshot \
 	--text="Options" \
 	--forms \
@@ -54,7 +55,7 @@ elif [ "$mode" == "Selected window" ];then
 	elif pgrep -x wayfire > /dev/null; then
 	GEO=$(wf-info |grep Geometry |cut -c 10-)
 	else
-	qarma \
+	zenity \
 		--title=Wshot \
 		--width=1500 \
 		--warning \
