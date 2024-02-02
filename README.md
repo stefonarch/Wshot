@@ -23,6 +23,7 @@ git clone https://github.com/stefonarch/wshot.git
 cd wshot
 sudo cp ./wshot /usr/local/bin/
 sudo cp wshot.png /usr/share/pixmaps/
+sudo cp wshot.desktop /usr/share/applications
 ```
 
 ## Usage
@@ -33,7 +34,6 @@ If no custom filename is set it defaults to `screenshot_$(date +%F_%H.%M.%S)` e.
 
 **Note**: "Selected window" mode is working only in sway and wayfire at the moment.
 
-Launching using an eventual `wshot.desktop` file results in "selected area" (`slurp`) not working, therefor launching by shortcut or cli is recommended.
 
 Not tested using zenity instead of qarma.
 
