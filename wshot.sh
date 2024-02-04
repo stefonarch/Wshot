@@ -23,7 +23,7 @@ WshotApp() {
 	local _clipboard=$(_ "Clipboard")
 	local _customFilename=$(_ "Custom filename:")
 	local _fileType=$(_ "File type")
-	local _openSaved=$(_ "Open saved result?")
+	local _openSaved=$(_ "Open saved result")
 	local _shotToClip=$(_ "Screenshot copied to clipboard")
 	local _savedAs=$(_ "Screenshot saved as")
 	local _winDetectionError=$(_ "Compositor does not support automatic window detection.")
