@@ -1,6 +1,6 @@
 # Wshot
 
->Simple Qt screenshot GUI for wayland.
+Simple Qt screenshot GUI for wayland.
 
 ![Image of wshot](wshot1.png)
 
@@ -8,22 +8,26 @@
 
 * grim
 * slurp
-* qarma
+* zenity / qarma
 * wl-clipboard
 
 ### Optional
 
+* cmake (to build/update translations and install the application)
+* git (to pull latest VCS checkouts)
 * wf-info (to select window under wayfire)
 * jq (to select window under sway)
 
-## Install
+## Build / Install
 
-```
-git clone https://github.com/stefonarch/wshot.git
-cd wshot
-sudo cp ./wshot /usr/local/bin/
-sudo cp wshot.png /usr/share/pixmaps/
-sudo cp wshot.desktop /usr/share/applications
+`CMAKE_INSTALL_PREFIX` has to be set to `/usr` on most operating systems.<br />
+Using `sudo make install` is discouraged, use the system package manager
+instead where possible.
+
+```bash
+cmake -B build -D CMAKE_INSTALL_PREFIX=/usr -W no-dev
+cmake --build build --verbose
+DESTDIR="$(pwd)/package" cmake --install build
 ```
 
 ## Usage
@@ -34,10 +38,18 @@ If no custom filename is set it defaults to `screenshot_$(date +%F_%H.%M.%S)` e.
 
 **Note**: "Selected window" mode is working only in sway and wayfire at the moment.
 
-
 Not tested using zenity instead of qarma.
+
+## Packages
+
+[![Packaging status]](https://repology.org/project/wshot/versions)
 
 ## Licenses
 
-Wshot is licensed under the [GPL3](COPYING) license. <br/>
-Icon comes from the [nuoveXT2.2](https://www.deviantart.com/sa-ki/art/nuoveXT-2-53518454) icon set by sa-ki, LGPL3 license.
+Wshot is licensed under the [GPL3] license.<br/>
+Icon comes from the [nuoveXT2.2] icon set by sa-ki, LGPL3 license.
+
+
+[GPL3]:             COPYING
+[nuoveXT2.2]:       https://www.deviantart.com/sa-ki/art/nuoveXT-2-53518454
+[Packaging status]: https://repology.org/badge/vertical-allrepos/wshot.svg
