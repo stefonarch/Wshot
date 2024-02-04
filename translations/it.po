@@ -1,0 +1,92 @@
+# wshot Italian translation.
+# Copyright (C) 2024 wshot organization
+# This file is distributed under the same license as the wshot package.
+# Andrea Zanellato <redtid3@gmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wshot\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 15:12+0100\n"
+"PO-Revision-Date: 2024-02-03 15:20+0100\n"
+"Last-Translator: Andrea Zanellato <redtid3@gmail.com>\n"
+"Language-Team: Italian <redtid3@gmail.com>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: wshot.sh:8
+msgid "Options"
+msgstr "Opzioni"
+
+#: wshot.sh:9
+msgid "Mode"
+msgstr "Modalità"
+
+#: wshot.sh:10
+msgid "Full screen"
+msgstr "Pieno schermo"
+
+#: wshot.sh:11
+msgid "Selected area"
+msgstr "Area selezionata"
+
+#: wshot.sh:12
+msgid "Selected window"
+msgstr "Finestra selezionata"
+
+#: wshot.sh:13
+msgid "Include cursor"
+msgstr "Includi cursore"
+
+#: wshot.sh:14
+msgid "no"
+msgstr "no"
+
+#: wshot.sh:15
+msgid "yes"
+msgstr "sì"
+
+#: wshot.sh:16
+msgid "Delay"
+msgstr "Ritardo"
+
+#: wshot.sh:17
+msgid "Destination"
+msgstr "Destinazione"
+
+#: wshot.sh:18
+msgid "Save file"
+msgstr "Salva file"
+
+#: wshot.sh:19
+msgid "Clipboard"
+msgstr "Clipboard"
+
+#: wshot.sh:20
+msgid "Custom filename:"
+msgstr "Nome file personalizzato:"
+
+#: wshot.sh:21
+msgid "File type"
+msgstr "Tipo di file"
+
+#: wshot.sh:22
+msgid "Open saved result?"
+msgstr "Aprire l'immagine salvata?"
+
+#: wshot.sh:23
+msgid "Screenshot copied to clipboard"
+msgstr "Istantanea salvata nella clipboard"
+
+#: wshot.sh:24
+msgid "Screenshot saved as"
+msgstr "Istantanea salvata come"
+
+#: wshot.sh:25
+msgid "Compositor does not support automatic window detection."
+msgstr "Il compositor non supporta il rilevamento automatico delle finestre."

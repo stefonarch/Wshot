@@ -1,0 +1,15 @@
+[Desktop Entry]
+Categories=@PROJECT_CATEGORIES@
+Exec=@PROJECT_COMMAND_LINE@
+Icon=@PROJECT_ID@
+Keywords=@PROJECT_KEYWORDS@
+Terminal=false
+Type=Application
+
+Name=@PROJECT_NAME@
+GenericName=@PROJECT_BRIEF@
+Comment=@PROJECT_DESCRIPTION@
+
+Name[it]=@PROJECT_NAME@
+GenericName[it]=Cattura schermata
+Comment[it]=Cattura schermata per Wayland
