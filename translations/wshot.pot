@@ -74,7 +74,7 @@ msgid "File type"
 msgstr ""
 
 #: wshot.sh:22
-msgid "Open saved result?"
+msgid "Open saved result"
 msgstr ""
 
 #: wshot.sh:23
