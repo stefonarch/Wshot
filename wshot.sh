@@ -77,6 +77,8 @@ WshotApp() {
 		GEO="$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)"
 		elif pgrep -x wayfire > /dev/null; then
 		GEO=$(wf-info |grep Geometry |cut -c 10-)
+		elif pgrep -x Hyprland > /dev/null; then
+		GEO="$(hyprctl -j activewindow | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)"
 		else
 		zenity \
 			--title=Wshot \
