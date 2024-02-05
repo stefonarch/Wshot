@@ -1,93 +1,94 @@
-# wshot Italian translation.
-# Copyright (C) 2024 wshot organization
-# This file is distributed under the same license as the wshot package.
-# Andrea Zanellato <redtid3@gmail.com>, 2024.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: wshot\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-03 15:12+0100\n"
-"PO-Revision-Date: 2024-02-04 12:15+0000\n"
-"Last-Translator: Standreas <standreas@riseup.net>\n"
-"Language-Team: Italian <https://translate.lxqt-project.org/projects/"
-"qtilities/wshot/it/>\n"
-"Language: it\n"
+"PO-Revision-Date: 2024-02-04 12:24+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch <https://translate.lxqt-project.org/projects/qtilities/"
+"wshot/nl/>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.2.1\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 #: wshot.sh:8
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Opties"
 
 #: wshot.sh:9
 msgid "Mode"
-msgstr "Modalità"
+msgstr "Modus"
 
 #: wshot.sh:10
 msgid "Full screen"
-msgstr "Pieno schermo"
+msgstr "Schermvullende weergave"
 
 #: wshot.sh:11
 msgid "Selected area"
-msgstr "Area selezionata"
+msgstr "Geselecteerd gebied"
 
 #: wshot.sh:12
 msgid "Selected window"
-msgstr "Finestra selezionata"
+msgstr "Geselecteerd venster"
 
 #: wshot.sh:13
 msgid "Include cursor"
-msgstr "Includi cursore"
+msgstr "Cursor tonen"
 
 #: wshot.sh:14
 msgid "no"
-msgstr "no"
+msgstr "Nee"
 
 #: wshot.sh:15
 msgid "yes"
-msgstr "sì"
+msgstr "Ja"
 
 #: wshot.sh:16
 msgid "Delay"
-msgstr "Ritardo"
+msgstr "Wachttijd"
 
 #: wshot.sh:17
 msgid "Destination"
-msgstr "Destinazione"
+msgstr "Bestemming"
 
 #: wshot.sh:18
 msgid "Save file"
-msgstr "Salva file"
+msgstr "Bestand opslaan"
 
 #: wshot.sh:19
 msgid "Clipboard"
-msgstr "Clipboard"
+msgstr "Klembord"
 
 #: wshot.sh:20
 msgid "Custom filename:"
-msgstr "Nome file personalizzato:"
+msgstr "Eigen bestandsnaam:"
 
 #: wshot.sh:21
 msgid "File type"
-msgstr "Tipo di file"
+msgstr "Bestandstype"
 
 #: wshot.sh:22
 msgid "Open saved result"
-msgstr "Aprire l'immagine salvata"
+msgstr "Resultaat tonen"
 
 #: wshot.sh:23
 msgid "Screenshot copied to clipboard"
-msgstr "Istantanea salvata nella clipboard"
+msgstr "De schermfoto is gekopieerd naar het klembord"
 
 #: wshot.sh:24
 msgid "Screenshot saved as"
-msgstr "Istantanea salvata come"
+msgstr "De schermfoto is opgeslagen als"
 
 #: wshot.sh:25
 msgid "Compositor does not support automatic window detection."
-msgstr "Il compositor non supporta il rilevamento automatico delle finestre."
+msgstr ""
+"Deze vensterbeheerder heeft geen ondersteuning voor automatische "
+"vensterdetectie."

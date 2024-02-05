@@ -1,0 +1,89 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-03 15:12+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wshot.sh:8
+msgid "Options"
+msgstr ""
+
+#: wshot.sh:9
+msgid "Mode"
+msgstr ""
+
+#: wshot.sh:10
+msgid "Full screen"
+msgstr ""
+
+#: wshot.sh:11
+msgid "Selected area"
+msgstr ""
+
+#: wshot.sh:12
+msgid "Selected window"
+msgstr ""
+
+#: wshot.sh:13
+msgid "Include cursor"
+msgstr ""
+
+#: wshot.sh:14
+msgid "no"
+msgstr ""
+
+#: wshot.sh:15
+msgid "yes"
+msgstr ""
+
+#: wshot.sh:16
+msgid "Delay"
+msgstr ""
+
+#: wshot.sh:17
+msgid "Destination"
+msgstr ""
+
+#: wshot.sh:18
+msgid "Save file"
+msgstr ""
+
+#: wshot.sh:19
+msgid "Clipboard"
+msgstr ""
+
+#: wshot.sh:20
+msgid "Custom filename:"
+msgstr ""
+
+#: wshot.sh:21
+msgid "File type"
+msgstr ""
+
+#: wshot.sh:22
+msgid "Open saved result"
+msgstr ""
+
+#: wshot.sh:23
+msgid "Screenshot copied to clipboard"
+msgstr ""
+
+#: wshot.sh:24
+msgid "Screenshot saved as"
+msgstr ""
+
+#: wshot.sh:25
+msgid "Compositor does not support automatic window detection."
+msgstr ""
