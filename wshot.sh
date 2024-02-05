@@ -46,6 +46,11 @@ WshotApp() {
 		--add-checkbox="$_openSaved" \
 	)
 
+	if [ -z "$values" ]; then
+		echo "Goodbye!"
+		exit 0
+	fi
+
 	local result=$?
 
 	local mode=$(echo $values | cut -d '|' -f 1)
