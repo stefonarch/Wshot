@@ -15,6 +15,7 @@ WshotApp() {
 	local _selectedArea=$(_ "Selected area")
 	local _selectedWindow=$(_ "Selected window")
 	local _withCursor=$(_ "Include cursor")
+	## both below not used under qarma:
 	local _nope=$(_ "no")
 	local _yep=$(_ "yes")
 	local _delay=$(_ "Delay")
@@ -28,6 +29,8 @@ WshotApp() {
 	local _savedAs=$(_ "Screenshot saved as")
 	local _winDetectionError=$(_ "Compositor does not support automatic window detection.")
 
+if command -v qarma &>/dev/null; then
+		# using qarma
 	local values=$(zenity \
 		--window-icon=/usr/share/pixmaps/wshot.png \
 		--title=Wshot \
@@ -45,6 +48,35 @@ WshotApp() {
 		--add-checkbox="$_withCursor" \
 		--add-checkbox="$_openSaved" \
 	)
+	OK="true"
+else
+	# using zenity
+	local values=$(zenity \
+		--icon=/usr/share/pixmaps/wshot.png \
+		--title=Wshot \
+		--text="$_textOptions" \
+		--forms \
+		--add-combo="$_grabMode" \
+			--combo-values="$_fullScreen|$_selectedArea|$_selectedWindow" \
+		--add-combo="$_delay" \
+			--combo-values="0|2|4|6|8|10|15|20" \
+		--add-combo="$_destination" \
+			--combo-values="$_saveFile|$_clipboard" \
+		--add-entry="$_customFilename" \
+		--add-combo="$_fileType" \
+			--combo-values="png|jpeg" \
+		--add-combo="$_withCursor" \
+			--combo-values="$_nope|$_yep" \
+		--add-combo="$_openSaved" \
+			--combo-values="$_nope|$_yep" \
+	)
+
+fi
+
+if [ -z "$values" ]; then
+		echo "Goodbye!"
+		exit 0
+fi
 
 	if [ -z "$values" ]; then
 		echo "Goodbye!"
@@ -61,13 +93,20 @@ WshotApp() {
 	local cursor=$(echo $values | cut -d '|' -f 6)
 	local open=$(echo $values | cut -d '|' -f 7)
 
+if [ "$cursor" = "$_nope" ]; then
+	unset cursor
+fi
+
+if [ "$open" = "$_yep" ]; then
+	open="true"
+fi
 
 	if [ "$result" -eq 1 ];then # selected cancel
 		echo "Goodbye!"
 		exit
 	fi
 
-	if [ ! -z "$cursor" ] &&	[ "$cursor" == true ];then
+	if [ ! -z "$cursor" ];then
 		OPTION+="-c"
 	fi
 
@@ -87,7 +126,7 @@ WshotApp() {
 		else
 		zenity \
 			--title=Wshot \
-			--width=1500 \
+			--width=150 \
 			--warning \
 			--timeout 3 \
 			--text="$_winDetectionError"
@@ -114,7 +153,7 @@ WshotApp() {
 		else
 			grim $OPTION -t $filetype -g "$GEO" $FILEDIR/$filename.$filetype
 		fi
-		if [ "$open" == true ]; then
+		if [ "$open" == "true" ]; then
 		xdg-open $FILEDIR/$filename.$filetype
 		else
 			notify-send -t 3000 -a Wshot -i /usr/share/pixmaps/wshot.png	"$_savedAs $FILEDIR/$filename.$filetype"

@@ -1,6 +1,6 @@
 # Wshot
 
-Simple Qt screenshot GUI for wayland.
+> Simple Qt screenshot GUI for Wayland.
 
 ![Image of wshot](wshot1.png)
 
@@ -8,7 +8,7 @@ Simple Qt screenshot GUI for wayland.
 
 * grim
 * slurp
-* zenity / qarma
+* qarma / zenity
 * wl-clipboard
 
 ### Optional
@@ -36,9 +36,13 @@ By default screenshots are saved to `~/tmp/screenshot_*`, edit `FILEDIR=` in `ws
 
 If no custom filename is set it defaults to `screenshot_$(date +%F_%H.%M.%S)` e.g. `screenshot_2023-08-07_11.37.18`.
 
-**Note**: "Selected window" mode is working only in sway, hyprland (floating windows only) and wayfire at the moment.
+**Note**
 
-Not tested using zenity instead of qarma.
+* "Selected window" mode is working only in sway, hyprland (floating windows only) and wayfire at the moment.
+
+* Using zenity checkboxes are not supported and replaced by combos.
+
+* Only wlroots-based compositor are supported.
 
 ## Packages
 
