@@ -1,4 +1,15 @@
 #!/bin/bash
+if
+   [ ! "$XDG_SESSION_TYPE" = "wayland" ];
+   then
+   zenity \
+			--title=Wshot \
+			--width=150 \
+			--warning \
+			--timeout 5 \
+			--text="Wshot works only on wayland"
+ exit 0
+fi
 
 _() {
 	gettext wshot "$1"
