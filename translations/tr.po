@@ -8,11 +8,11 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-03 15:12+0100\n"
-"PO-Revision-Date: 2024-02-06 09:37+0000\n"
-"Last-Translator: Standreas <standreas@riseup.net>\n"
-"Language-Team: German <https://translate.lxqt-project.org/projects/qtilities/"
-"wshot/de/>\n"
-"Language: de\n"
+"PO-Revision-Date: 2024-02-24 22:23+0000\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Turkish <https://translate.lxqt-project.org/projects/"
+"qtilities/wshot/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,72 +21,72 @@ msgstr ""
 
 #: wshot.sh:8
 msgid "Options"
-msgstr "Optionen"
+msgstr "Seçenekler"
 
 #: wshot.sh:9
 msgid "Mode"
-msgstr "Typ"
+msgstr "Kip"
 
 #: wshot.sh:10
 msgid "Full screen"
-msgstr "Vollbild"
+msgstr "Tam ekran"
 
 #: wshot.sh:11
 msgid "Selected area"
-msgstr "Ausgewählter Bereich"
+msgstr "Seçilen alan"
 
 #: wshot.sh:12
 msgid "Selected window"
-msgstr "Aktives Fenster"
+msgstr "Seçilen pencere"
 
 #: wshot.sh:13
 msgid "Include cursor"
-msgstr "Einschliesslich Mauszeiger"
+msgstr "İmleci içer"
 
 #: wshot.sh:14
 msgid "no"
-msgstr "nein"
+msgstr "hayır"
 
 #: wshot.sh:15
 msgid "yes"
-msgstr "ja"
+msgstr "evet"
 
 #: wshot.sh:16
 msgid "Delay"
-msgstr "Verzögerung"
+msgstr "Gecikme"
 
 #: wshot.sh:17
 msgid "Destination"
-msgstr "Ziel"
+msgstr "Hedef"
 
 #: wshot.sh:18
 msgid "Save file"
-msgstr "Speichern"
+msgstr "Dosyayı kaydet"
 
 #: wshot.sh:19
 msgid "Clipboard"
-msgstr "Zwischenablage"
+msgstr "Pano"
 
 #: wshot.sh:20
 msgid "Custom filename:"
-msgstr "Benutzerdefinierter Dateiname:"
+msgstr "Özel dosya adı:"
 
 #: wshot.sh:21
 msgid "File type"
-msgstr "Filetyp"
+msgstr "Dosya türü"
 
 #: wshot.sh:22
 msgid "Open saved result"
-msgstr "Bildschirmfoto öffnen"
+msgstr "Kayıtlı sonucu aç"
 
 #: wshot.sh:23
 msgid "Screenshot copied to clipboard"
-msgstr "Bildschirmfoto in die Zwischenablage kopiert"
+msgstr "Ekran görüntüsü panoya kopyalandı"
 
 #: wshot.sh:24
 msgid "Screenshot saved as"
-msgstr "Bildschirmfoto gespeichert unter"
+msgstr "Ekran görüntüsü farklı kaydedildi"
 
 #: wshot.sh:25
 msgid "Compositor does not support automatic window detection."
-msgstr "Kompositor unterstützt keine automatische Fenstererkennung."
+msgstr "Dizgici pencereleri kendiliğinden algılamayı desteklemiyor."
