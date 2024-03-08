@@ -46,6 +46,8 @@ if command -v qarma &>/dev/null; then
 		--window-icon=/usr/share/pixmaps/wshot.png \
 		--title=Wshot \
 		--text="$_textOptions" \
+		--ok-label="Take Screenshot" \
+		--cancel-label="Exit" \
 		--forms \
 		--add-combo="$_grabMode" \
 			--combo-values="$_fullScreen|$_selectedArea|$_selectedWindow" \
@@ -58,7 +60,7 @@ if command -v qarma &>/dev/null; then
 			--combo-values="png|jpeg" \
 		--add-checkbox="$_withCursor" \
 		--add-checkbox="$_openSaved" \
-	)
+			)
 	OK="true"
 else
 	# using zenity
@@ -99,7 +101,7 @@ fi
 	local mode=$(echo $values | cut -d '|' -f 1)
 	local wait=$(echo $values | cut -d '|' -f 2)
 	local destination=$(echo $values | cut -d '|' -f 3)
-	local filename=$(echo $values | cut -d '|' -f 4)
+	local filename=$(echo $values | cut -d '|' -f 4|tr -cd '[:alnum:]')
 	local filetype=$(echo $values | cut -d '|' -f 5)
 	local cursor=$(echo $values | cut -d '|' -f 6)
 	local open=$(echo $values | cut -d '|' -f 7)
